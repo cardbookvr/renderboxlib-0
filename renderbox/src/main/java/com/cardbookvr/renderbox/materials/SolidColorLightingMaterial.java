@@ -1,4 +1,4 @@
-package com.cardbookvr.solarsystem.RenderBoxExt.materials;
+package com.cardbookvr.renderbox.materials;
 
 import android.opengl.GLES20;
 import android.opengl.Matrix;
@@ -6,7 +6,6 @@ import android.opengl.Matrix;
 import com.cardbookvr.renderbox.R;
 import com.cardbookvr.renderbox.RenderBox;
 import com.cardbookvr.renderbox.components.RenderObject;
-import com.cardbookvr.renderbox.materials.Material;
 
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
@@ -41,7 +40,7 @@ public class SolidColorLightingMaterial extends Material {
         setupProgram();
     }
 
-    void setColor(float[] c){
+    public void setColor(float[] c){
         color = c;
     }
 
@@ -99,6 +98,10 @@ public class SolidColorLightingMaterial extends Material {
         GLES20.glVertexAttribPointer(normalParam, 3, GLES20.GL_FLOAT, false, 0, normalBuffer);
 
         GLES20.glDrawElements(GLES20.GL_TRIANGLES, numIndices, GLES20.GL_UNSIGNED_SHORT, indexBuffer);
+    }
+
+    public static void destroy(){
+        program = -1;
     }
 
 }

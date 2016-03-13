@@ -1,12 +1,11 @@
-package com.cardbookvr.solarsystem.RenderBoxExt.materials;
+package com.cardbookvr.renderbox.materials;
 
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 
+import com.cardbookvr.renderbox.R;
 import com.cardbookvr.renderbox.RenderBox;
 import com.cardbookvr.renderbox.components.RenderObject;
-import com.cardbookvr.renderbox.materials.Material;
-import com.cardbookvr.renderbox.R;
 
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
@@ -38,7 +37,7 @@ public class DiffuseLightingMaterial extends Material {
     public DiffuseLightingMaterial(int resourceId){
         super();
         setupProgram();
-        this.textureId = RenderBox.loadTexture(resourceId);
+        this.textureId = RenderObject.loadTexture(resourceId);
     }
 
     public static void setupProgram(){
@@ -112,6 +111,10 @@ public class DiffuseLightingMaterial extends Material {
         GLES20.glDrawElements(GLES20.GL_TRIANGLES, numIndices, GLES20.GL_UNSIGNED_SHORT, indexBuffer);
 
         RenderBox.checkGLError("Diffuse Texture Color Lighting draw");
+    }
+
+    public static void destroy(){
+        program = -1;
     }
 
 }

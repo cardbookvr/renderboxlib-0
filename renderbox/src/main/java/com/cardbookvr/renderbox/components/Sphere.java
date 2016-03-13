@@ -1,13 +1,12 @@
-package com.cardbookvr.solarsystem.RenderBoxExt.components;
+package com.cardbookvr.renderbox.components;
 
-import com.cardbookvr.renderbox.components.RenderObject;
+import com.cardbookvr.renderbox.materials.DayNightMaterial;
+import com.cardbookvr.renderbox.materials.DiffuseLightingMaterial;
+import com.cardbookvr.renderbox.materials.SolidColorLightingMaterial;
+import com.cardbookvr.renderbox.materials.UnlitTexMaterial;
 import com.cardbookvr.renderbox.math.MathUtils;
 import com.cardbookvr.renderbox.math.Vector2;
 import com.cardbookvr.renderbox.math.Vector3;
-import com.cardbookvr.solarsystem.RenderBoxExt.materials.DayNightMaterial;
-import com.cardbookvr.solarsystem.RenderBoxExt.materials.DiffuseLightingMaterial;
-import com.cardbookvr.solarsystem.RenderBoxExt.materials.SolidColorLightingMaterial;
-import com.cardbookvr.solarsystem.RenderBoxExt.materials.UnlitTexMaterial;
 
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
