@@ -32,6 +32,15 @@ public abstract class RenderObject extends Component {
         RenderBox.instance.renderObjects.add(this);
     }
 
+    public Material getMaterial(){
+        return material;
+    }
+    
+    public RenderObject setMaterial(Material material){
+        this.material = material;
+        return this;
+    }
+
     protected static FloatBuffer allocateFloatBuffer(float[] data){
         ByteBuffer bbVertices = ByteBuffer.allocateDirect(data.length * 4);
         bbVertices.order(ByteOrder.nativeOrder());
