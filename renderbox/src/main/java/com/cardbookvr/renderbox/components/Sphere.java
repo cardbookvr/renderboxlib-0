@@ -18,11 +18,11 @@ import java.nio.ShortBuffer;
 public class Sphere extends RenderObject {
     private static final String TAG = "RenderBox.Sphere";
 
-    private static FloatBuffer vertexBuffer;
-    private static FloatBuffer normalBuffer;
-    private static FloatBuffer texCoordBuffer;
-    private static ShortBuffer indexBuffer;
-    private static int numIndices;
+    public static FloatBuffer vertexBuffer;
+    public static FloatBuffer normalBuffer;
+    public static FloatBuffer texCoordBuffer;
+    public static ShortBuffer indexBuffer;
+    public static int numIndices;
 
     public Sphere() {
         super();
