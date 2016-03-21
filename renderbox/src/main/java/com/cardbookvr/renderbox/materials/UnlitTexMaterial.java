@@ -65,6 +65,14 @@ public class UnlitTexMaterial extends Material {
         this.numIndices = numIndices;
     }
 
+    public void setTexture(int textureHandle){
+        textureId = textureHandle;
+    }
+
+    public int getTexture(){
+        return textureId;
+    }
+
     @Override
     public void draw(float[] view, float[] perspective) {
         GLES20.glUseProgram(program);
