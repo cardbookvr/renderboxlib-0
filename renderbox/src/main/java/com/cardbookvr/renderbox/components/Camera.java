@@ -34,7 +34,7 @@ public class Camera extends Component {
     public void onNewFrame(){
         // Build the camera matrix and apply it to the ModelView.
         Vector3 position = transform.getPosition();
-        Matrix.setLookAtM(camera, 0, position.x, position.y, position.z, position.x, position.y, position.z + Z_NEAR, 0.0f, 1.0f, 0.0f);
+        Matrix.setLookAtM(camera, 0, position.x, position.y, position.z + Z_NEAR, position.x, position.y, position.z, 0.0f, 1.0f, 0.0f);
 
         RenderBox.checkGLError("onNewFrame");
     }
