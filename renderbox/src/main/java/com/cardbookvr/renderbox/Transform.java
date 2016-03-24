@@ -180,6 +180,7 @@ public class Transform {
             Matrix4 result = new Matrix4();
             result.setRotate(localRotation);
             return new Vector3(parent.getScale()).scale(result.multiplyPoint3x4(localScale));
+//            return new Vector3(parent.getScale()).scale(localScale);
         }
         return localScale;
     }
