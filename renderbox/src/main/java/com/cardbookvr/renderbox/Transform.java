@@ -177,10 +177,10 @@ public class Transform {
 	====================*/
     public Vector3 getScale(){
         if(parent != null){
-            Matrix4 result = new Matrix4();
-            result.setRotate(localRotation);
-            return new Vector3(parent.getScale()).scale(result.multiplyPoint3x4(localScale));
-//            return new Vector3(parent.getScale()).scale(localScale);
+//            Matrix4 result = new Matrix4();
+//            result.setRotate(localRotation);
+//            return new Vector3(parent.getScale()).scale(result.multiplyPoint3x4(localScale));
+            return new Vector3(parent.getScale()).scale(localScale);
         }
         return localScale;
     }
