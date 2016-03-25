@@ -25,6 +25,7 @@ public class Camera extends Component {
     private final float[] camera = new float[16];
     private final float[] view = new float[16];
     public Transform getTransform(){return transform;}
+    public boolean headTracking = true;
 
     public Camera(){
         //The camera breaks pattern and creates its own Transform
@@ -45,8 +46,12 @@ public class Camera extends Component {
 
         RenderBox.checkGLError("glClear");
 
-        // Apply the eye transformation to the camera.
-        Matrix.multiplyMM(view, 0, eye.getEyeView(), 0, camera, 0);
+        if (headTracking) {
+            // Apply the eye transformation to the camera.
+            Matrix.multiplyMM(view, 0, eye.getEyeView(), 0, camera, 0);
+        } else {
+            for (int i=0; i < camera.length; i++) { view[i] = camera[i]; }
+        }
 
         // Compute lighting position
         RenderBox.instance.mainLight.onDraw(view);
