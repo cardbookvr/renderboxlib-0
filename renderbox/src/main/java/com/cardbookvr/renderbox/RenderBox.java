@@ -1,11 +1,8 @@
 package com.cardbookvr.renderbox;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLU;
-import android.opengl.GLUtils;
 import android.util.Log;
 
 import com.cardbookvr.renderbox.components.Camera;
@@ -52,9 +49,6 @@ public class RenderBox implements CardboardView.StereoRenderer {
         instance = this;
         this.mainActivity = mainActivity;
         this.callbacks = callbacks;
-        mainCamera = new Camera();
-        mainLight = new Light();
-        new Transform().addComponent(mainLight);
     }
 
     @Override
@@ -85,7 +79,12 @@ public class RenderBox implements CardboardView.StereoRenderer {
     @Override
     public void onSurfaceCreated(EGLConfig eglConfig) {
         RenderBox.reset();
-        GLES20.glClearColor(0.1f, 0.1f, 0.1f, 0.5f);
+        GLES20.glClearColor(0.1f, 0.1f, 0.1f, 0.005f);
+
+        mainLight = new Light();
+        new Transform().addComponent(mainLight);
+        mainCamera = new Camera();
+
         checkGLError("onSurfaceCreated");
         callbacks.setup();
     }
