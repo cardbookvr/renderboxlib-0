@@ -49,6 +49,7 @@ public class RenderBox implements CardboardView.StereoRenderer {
         instance = this;
         this.mainActivity = mainActivity;
         this.callbacks = callbacks;
+        Time.start();
     }
 
     @Override
